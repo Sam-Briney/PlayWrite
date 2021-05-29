@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>New Project - PlayWrite</title>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="js/jquery/ui/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+		<script type="text/javascript" src="js/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery/ui/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery/mobile/jquery.mobile.custom.min.js"></script>
+
+		<script type="text/javascript" src="js/jquery/ui/jquery.ui.touch-punch.min.js"></script>
+
+		<script type="text/javascript" src="js/jquery/ui/jquery.multisortable-master/src/jquery.multisortable.js"></script>
+
+		<script type="text/javascript" src="js/jquery/jquery.scrollintoview.min.js"></script>
+
+		<script type="text/javascript" src="js/jquery/autogrow.js"></script>
+
+		<script type="text/javascript" src="js/jsPDF/jspdf.js"></script>
+		<script type="text/javascript" src="js/jsPDF/jspdf.plugin.addimage.js"></script>
+
+		<script type="text/javascript" src="js/gifshot/gifshot.min.js"></script>
+
+		<script type="text/javascript" src="js/proto.js"></script>
+
+		<script type="text/javascript" src="js/main.js"></script>
+
+	</head>
+	<body>
+		<div id="button_contain">
+			<div class="button non-radio" id="new" title="New">
+				<img src="resources/images/new.png"/>
+			</div>
+			<div class="button non-radio" id="open" title="Open">
+				<img src="resources/images/open.png"/>
+			</div>
+			<div class="button non-radio" id="save" title="Save">
+				<img src="resources/images/save.png"/>
+			</div>
+
+			<div class="button non-radio" id="generate_pdf" title="Generate PDF" style="margin-top:1px">PDF</div>
+
+			<div id="undo" class="button non-radio" title="Undo">
+				<img src="resources/images/undo.png"/>
+			</div>
+			<div id="delete" class="button non-radio" title="Delete">
+				<img src="resources/images/delete_text_box.png"/>
+			</div>
+			<div id="show_handles" class="button non-radio">
+				<img src="resources/images/move.png"/>
+			</div>
+			<div class="button button_select line_setting" id="arrow">
+				<img src="resources/images/lines/arrow.png"/>
+			</div>
+			<div class="button line_setting" id="dribble">
+				<img src="resources/images/lines/dribble.png" style="margin-bottom: 2px"/>
+			</div>
+			<div class="button line_setting" id="screen">
+				<img src="resources/images/lines/screen.png"/>
+			</div>
+			<div class="button line_setting" id="pass">
+				<img src="resources/images/lines/pass.png"/>
+			</div>
+			<div class="button line_setting xoBall" id="ball">
+				<img src="resources/images/xo/buttons/ball.png"/>
+			</div>
+			<div class="numbered_players" id="numbered_ball">
+				<div class='button line_setting' id='ball1'>1</div>
+				<div class='button line_setting' id='ball2'>2</div>
+				<div class='button line_setting' id='ball3'>3</div>
+				<div class='button line_setting' id='ball4'>4</div>
+				<div class='button line_setting' id='ball5'>5</div>
+			</div>
+			<div class="button line_setting xoBall" id="o">
+				<img src="resources/images/xo/buttons/o.png"/>
+			</div>
+			<div class="numbered_players" id="numbered_o">
+				<div class='button line_setting' id='o1'>1</div>
+				<div class='button line_setting' id='o2'>2</div>
+				<div class='button line_setting' id='o3'>3</div>
+				<div class='button line_setting' id='o4'>4</div>
+				<div class='button line_setting' id='o5'>5</div>
+			</div>
+			<div class="button line_setting xoBall" id="x">
+				<img src="resources/images/xo/buttons/x.png"/>
+			</div>
+			<div class="numbered_players" id="numbered_x">
+				<div class='button line_setting' id='x1'>1</div>
+				<div class='button line_setting' id='x2'>2</div>
+				<div class='button line_setting' id='x3'>3</div>
+				<div class='button line_setting' id='x4'>4</div>
+				<div class='button line_setting' id='x5'>5</div>
+			</div>
+
+			<div class="button non-radio" id="new_text_box" title="Text Box">
+				<img src="resources/images/text_box.png"/>
+			</div>
+
+			<div class="button court_setting" id="full_court" title="Full Court">
+				<img src="resources/images/full_court.png"/>
+			</div>
+			<div class="button court_setting court_select" id="half_court" title="Half Court">
+				<img src="resources/images/half_court.png"/>
+			</div>
+			<div class="button bound_setting bound_select" id="no_bound" title="No Boundaries">
+				<img src="resources/images/half_court.png"/>
+			</div>
+			<div class="button bound_setting" id="bound" title="Boundaries">
+				<img src="resources/images/bounds.png"/>
+			</div>
+
+			<div class="hidden" id="delete_frame">Delete frame</div>
+			<div class="hidden" id="paste">paste</div>
+			<div class="hidden" id="a_done_false">Reset temp_line.a_done</div>
+			<input class="hidden" id="open_input" type="file" accept=".plrt" multiple>
+			<input class="hidden" id="save_as_input" type="file" accept=".plrt" nwsaveas>
+			<input class="hidden" id="pdf_input" type="file" accept=".pdf" nwsaveas>
+		</div>
+
+		<div id="frame_select_contain">
+			<div id="add_frame" class="button" title="New Frame">+</div>
+			<div id="continue_frame" class="button non-radio" title="Continue Play"><img src="resources/images/down_arrow.png"/></div>
+			</br>
+			</br>
+			<ul id="frame_select">
+				<li class="frame frame_selected" id="frame_0">
+					<img src="resources/images/half_court.png"/>
+					</br>
+					<span2></span2><span>New Frame</span>
+				</li>
+			</ul>
+		</div>
+
+		<div id="canvas_scroll">
+			<table style="width:100%" id="frame-canvas_contain">
+				<tbody>
+					<tr>
+						<td>
+							<div style="width:150px;margin-right:7px;">
+							</div>
+						</td>
+						<td>
+							<div id="canvas_contain">
+								<span id="name_display">New Frame</span>
+								<div id="canvas_overlay">
+									<canvas id="canvas" width="500" height="420">
+										ERROR UNABLE TO READ CANVAS
+									</canvas>
+									<div id="text_box_contain"></div>
+									<div id="drawing_contain"></div>
+									<div id="handle_contain"></div>
+									<div id="edit_line_contain"></div>
+								</div>
+								<div style="height: 50px"></div>
+
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<input class="hidden" id="lose_focus">
+
+		<canvas id="pdf_canvas" class="hidden" width="500" height="420"></canvas>
+		<textarea id="draw_text_area" class="hidden"></textarea>
+
+		<div id="frame_rename" title="Rename frame" class="hidden dialog">
+			<input type="text" value="New Frame" id="frame_name" placeholder="Frame Name">
+		</div>
+
+		<div id="pdf_detail" title="Generate PDF" class="hidden dialog">
+			<div>
+				<table>
+					<tr>
+						<td>
+							<div>Half courts per page:</div>
+							</br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="per_page">
+								<div class="button" id="per_page_1">2</div>
+								<div class="button" id="per_page_2">6</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="print_friend">
+								<div class="button" title="White lane">Printer Friendly</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="selection_only">
+								<div class="button" title="Only include selected frames">Selection Only</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="example">
+								<img src="resources/images/pdf_examples/1.png"/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+		<div id="print_detail" title="Print" class="hidden dialog">
+			<div>
+				<table>
+					<tr>
+						<td>
+							<div>Half courts per page:</div>
+							</br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="per_page_print">
+								<div class="button" id="per_page_1_print">2</div>
+								<div class="button" id="per_page_2_print">6</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="print_friend_print">
+								<div class="button" title="White lane">Printer Friendly</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="selection_only_print">
+								<div class="button" title="Only print selected frames">Selection Only</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="example_print">
+								<img src="resources/images/pdf_examples/1.png"/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+
+		<div id="notPLRT" title="File Not Valid" class="hidden dialog">
+			<div>
+				ERROR: <span></span>is invalid or corrupted
+			</div>
+		</div>
+
+		<div id="settings" title="Settings" class="hidden dialog">
+			<div>
+				<ul>
+					<li id="settings_drawing_straight_curved">
+						<form>
+							<div class='button'>Left click to draw straight lines and right click to draw curved lines</div>
+							<div class='button'>Left click to draw curved lines and right click to draw straight lines</div>
+						</form>
+					</li>
+					<li class="settings_separator">
+						<div></div>
+					</li>
+					<li id="settings_player_name_display">
+						<form>
+							<div class="button">Display the player's last name</div>
+							<div class="button">Display the player's first name</div>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="update" title="Update available" class="hidden dialog">
+			<div id="update_heading"></div>
+			<div>
+				<ul>
+
+				</ul>
+			</div>
+			<span></span><span></span>
+		</div>
+
+		<div id="update2" title="Validate" class="hidden dialog">
+			<div>Please enter your validation code.</div>
+			<div>If you have bought the software and do not have a validation code <a class="external_link" href="#" data-href="https://coachesbrain.com/playwrite/help/">click here</a></div>
+			<input type="text" maxlength="1000"/>
+			</br>
+			<span style="color:red;"></span>
+		</div>
+
+		<div id="player_icons" title="Change Player Icons" class="hidden dialog">
+			<div>Icon Style</div>
+			<ol>
+				<li data-player='classic' class="player_icon_select">
+					<img src="resources/images/xo/classic/ball.png">
+					<img src="resources/images/xo/classic/o.png">
+					<img src="resources/images/xo/classic/x.png">
+				</li>
+				<li data-player='triangle'>
+					<img src="resources/images/xo/classic/ball.png">
+					<img src="resources/images/xo/classic/o.png">
+					<img src="resources/images/xo/triangle/x.png">
+				</li>
+			</ol>
+			</br>
+		</div>
+
+		<div id="edit_players" title="Edit Players" class="hidden dialog">
+			<div id="new_player" class="button non-radio">New Player</div>
+			<div id="import_players" class="button non-radio">Import Players</div>
+			<input type="file" value="" class="hidden" accept=".plrt"/>
+			<div id="delete_players" class="button non-radio">Delete</div>
+			<br/>
+			<ol>
+				<br/>
+			</ol>
+		</div>
+
+		<div id="new_player_dialog" title="New Player" class="hidden dialog">
+			<div>New Player</div>
+			<form>
+				<input type="text" placeholder="First Name" name="fName"/>
+				<br/>
+				<input type="text" placeholder="Last Name" name="lName"/>
+				<br/>
+				<span>Positions:</span>
+				<br/>
+				<span>PG</span>
+				<input type="checkbox" name="position" value="PG"/>
+				<span>SG</span>
+				<input type="checkbox" name="position" value="SG"/>
+				<span>SF</span>
+				<input type="checkbox" name="position" value="SF">
+				<span>PF</span>
+				<input type="checkbox" name="position" value="PF"/>
+				<span>C</span>
+				<input type="checkbox" name="position" value="C"/>
+				</br>
+				<span>Number</span>
+				<input type="number" name="number" value="0" min="0" max="55"/>
+			</form>
+		</div>
+
+		<div id="edit_player" title="Edit Player" class="hidden dialog">
+			<div>Edit Player</div>
+			<form>
+				<input type="text" placeholder="First Name" name="fName"/>
+				<br/>
+				<input type="text" placeholder="Last Name" name="lName"/>
+				<br/>
+				<span>Positions:</span>
+				<br/>
+				<span>PG</span>
+				<input type="checkbox" name="position" value="PG"/>
+				<span>SG</span>
+				<input type="checkbox" name="position" value="SG"/>
+				<span>SF</span>
+				<input type="checkbox" name="position" value="SF">
+				<span>PF</span>
+				<input type="checkbox" name="position" value="PF"/>
+				<span>C</span>
+				<input type="checkbox" name="position" value="C"/>
+				</br>
+				<span>Number</span>
+				<input type="number" name="number" value="0" min="0" max="55"/>
+			</form>
+		</div>
+
+		<div id="duplicate_players" title="Duplicate Players" class="hidden dialog">
+			<form>
+				<ol>
+
+				</ol>
+			</form>
+		</div>
+
+		<div id="search" title="Search" class="hidden dialog">
+			<div id="search_tabs">
+				<ul>
+					<li><a href='#search-1'>Find Players</a></li>
+					<li><a href='#search-2'>Find Text</a></li>
+					<li><a href='#search-3'>Find in Files</a></li>
+				</ul>
+				<div id="search-1">
+					<select></select>
+				</div>
+				<div id="search-2">
+					<input type="text" placeholder="Search" style="width: 200px;"/>
+				</div>
+				<div id="search-3">
+					<input type="text" id="search-3_file_display" style="width: 200px; float: left;"/>
+					<div class="button non-radio" id="search-3_file">Browse</div>
+					<br/>
+					<input type="file" id="search-3_file_input" class="hidden" nwdirectory/>
+					<input type="text" id="search-3_text" placeholder="Search" style="width: 200px"/>
+
+					<div id="search-3_results"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="gif_dialog" title="Create GIF" class="hidden dialog">
+			<div>
+				Select a range of frames
+			</div>
+			<div id="gif_range">
+				<input value="1">
+				-
+				<input value="1">
+			</div>
+			<div id="gif_invalid" class="hidden">
+				Invalid Range
+			</div>
+			<input type="file" id="gif_file" class="hidden" accept=".gif" nwsaveas>
+		</div>
+
+		<div id="prompt_dialog" title="" class="hidden dialog"></div>
+
+		<div id="save_changes" title="Save Changes?" class="hidden dialog">
+			<p>Would you like to save the changes to this file?</p>
+		</div>
+
+		<div id="aa" class="hidden"></div>
+
+		<img src="resources/images/dot.png" id="dotIMG" class="hidden"/>
+
+		<img src="resources/images/half_court.png" id="half_courtIMG" class="hidden"/>
+		<img src="resources/images/full_court_vert.png" id="full_court_vertIMG" class="hidden"/>
+
+		<img src="resources/images/half_court_print.png" id="half_court_printIMG" class="hidden"/>
+		<img src="resources/images/full_court_print.png" id="full_court_printIMG" class="hidden"/>
+
+		<div id="player_icons_data" class="hidden">
+			<!-- break -->
+			<!-- classic -->
+			<img src="resources/images/xo/classic/o.png" id="oIMG" data-player="classic"/>
+			<img src="resources/images/xo/classic/x.png" id="xIMG" data-player="classic"/>
+			<img src="resources/images/xo/classic/ball.png" id="ballIMG" data-player="classic"/>
+
+			<img src="resources/images/xo/classic/1o.png" data-player="classic" data-numbered='o'/>
+			<img src="resources/images/xo/classic/2o.png" data-player="classic" data-numbered='o'/>
+			<img src="resources/images/xo/classic/3o.png" data-player="classic" data-numbered='o'/>
+			<img src="resources/images/xo/classic/4o.png" data-player="classic" data-numbered='o'/>
+			<img src="resources/images/xo/classic/5o.png" data-player="classic" data-numbered='o'/>
+
+			<img src="resources/images/xo/classic/1x.png" data-player="classic" data-numbered='x'/>
+			<img src="resources/images/xo/classic/2x.png" data-player="classic" data-numbered='x'/>
+			<img src="resources/images/xo/classic/3x.png" data-player="classic" data-numbered='x'/>
+			<img src="resources/images/xo/classic/4x.png" data-player="classic" data-numbered='x'/>
+			<img src="resources/images/xo/classic/5x.png" data-player="classic" data-numbered='x'/>
+
+			<img src="resources/images/xo/classic/1ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/2ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/3ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/4ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/5ball.png" data-player="classic" data-numbered='ball'/>
+
+			<!-- break -->
+			<!-- triangle -->
+			<img src="resources/images/xo/classic/o.png" data-player="triangle">
+			<img src="resources/images/xo/triangle/x.png" data-player="triangle">
+			<img src="resources/images/xo/classic/ball.png" data-player="triangle">
+
+			<img src="resources/images/xo/classic/1o.png" data-player="triangle" data-numbered='o'/>
+			<img src="resources/images/xo/classic/2o.png" data-player="triangle" data-numbered='o'/>
+			<img src="resources/images/xo/classic/3o.png" data-player="triangle" data-numbered='o'/>
+			<img src="resources/images/xo/classic/4o.png" data-player="triangle" data-numbered='o'/>
+			<img src="resources/images/xo/classic/5o.png" data-player="triangle" data-numbered='o'/>
+
+			<img src="resources/images/xo/triangle/1x.png" data-player="triangle" data-numbered='x'/>
+			<img src="resources/images/xo/triangle/2x.png" data-player="triangle" data-numbered='x'/>
+			<img src="resources/images/xo/triangle/3x.png" data-player="triangle" data-numbered='x'/>
+			<img src="resources/images/xo/triangle/4x.png" data-player="triangle" data-numbered='x'/>
+			<img src="resources/images/xo/triangle/5x.png" data-player="triangle" data-numbered='x'/>
+
+			<img src="resources/images/xo/classic/1ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/2ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/3ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/4ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="resources/images/xo/classic/5ball.png" data-player="triangle" data-numbered='ball'/>
+
+		</div>
+
+
+	</body>
+</html>

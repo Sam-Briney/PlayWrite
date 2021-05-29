@@ -1,0 +1,22 @@
+{
+	"name":"Play Write",
+	"main":"index.html",
+	"window":{
+		"toolbar":false,
+		"width":900,
+		"height":640,
+		"icon":"resources/icons/32.png",
+		"min_width":720,
+		"min_height":240,
+		"show":false
+	},
+	"webkit":{
+		"page-cache": true
+	},
+	"version":"1.0.0.0",
+	"position":"center",
+	"keywords":["basketball", "notation", "playwrite"],
+	"description":"Basketball notation: draw and save basketball plays",
+	"single-instance":false
+	
+}

@@ -1,0 +1,56 @@
+*{
+	-webkit-user-select:none;
+}
+html{
+	height: 100%;
+}
+body{
+	background-color:#C4C4C4;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	font-family:Verdana,Arial,sans-serif;
+	size: 7px;
+	height: 100%;
+}
+#content{
+    display: block;
+	height: 100%;
+}
+.frame{
+	height: calc(100% - 40px);
+	margin-top: 30px;
+	width: auto;
+	margin-right: auto;
+	margin-left: auto;
+	z-index: 100;
+}
+.frame canvas{
+	height: 100%;
+	width: auto;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+.hidden{
+	display: none;
+}
+#count{
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+#frame_name{
+	top: 2px;
+	position: absolute;
+	height: 20px;
+	text-align: center;
+	width: 100%;
+	font-size: 20px;
+}
+#close{
+	top: 5px;
+	right: 5px;
+	position: absolute;
+	cursor: pointer;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../css/presentation.css"/>
+        <link rel="stylesheet" type="text/css" href="../js/jquery/ui/jquery-ui-1.11.4.custom/jquery-ui.min.css"/>
+
+        <script type="text/javascript" src="../js/jquery/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="../js/jquery/ui/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../js/jquery/mobile/jquery.mobile.custom.min.js"></script>
+        <script type="text/javascript" src="../js/presentation.js"></script>
+    </head>
+    <body>
+        <div id="count"></div>
+        <div id="frame_name"></div>
+        <div id="close">X</div>
+        <div id="content">
+
+        </div>
+
+        <div id="end_dialog" title="End Presentation?">
+            You have reached the last frame. Would you like to exit?
+        </div>
+
+        <img src="../resources/images/dot.png" id="dotIMG" class="hidden"/>
+
+		<img src="../resources/images/half_court.png" id="half_courtIMG" class="hidden"/>
+		<img src="../resources/images/full_court_vert.png" id="full_court_vertIMG" class="hidden"/>
+
+		<img src="../resources/images/half_court_print.png" id="half_court_printIMG" class="hidden"/>
+		<img src="../resources/images/full_court_print.png" id="full_court_printIMG" class="hidden"/>
+
+		<div id="player_icons_data" class="hidden">
+			<!-- break -->
+			<!-- classic -->
+			<img src="../resources/images/xo/classic/o.png" id="oIMG" data-player="classic"/>
+			<img src="../resources/images/xo/classic/x.png" id="xIMG" data-player="classic"/>
+			<img src="../resources/images/xo/classic/ball.png" id="ballIMG" data-player="classic"/>
+
+			<img src="../resources/images/xo/classic/1o.png" data-player="classic" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/2o.png" data-player="classic" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/3o.png" data-player="classic" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/4o.png" data-player="classic" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/5o.png" data-player="classic" data-numbered='o'/>
+
+			<img src="../resources/images/xo/classic/1x.png" data-player="classic" data-numbered='x'/>
+			<img src="../resources/images/xo/classic/2x.png" data-player="classic" data-numbered='x'/>
+			<img src="../resources/images/xo/classic/3x.png" data-player="classic" data-numbered='x'/>
+			<img src="../resources/images/xo/classic/4x.png" data-player="classic" data-numbered='x'/>
+			<img src="../resources/images/xo/classic/5x.png" data-player="classic" data-numbered='x'/>
+
+			<img src="../resources/images/xo/classic/1ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/2ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/3ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/4ball.png" data-player="classic" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/5ball.png" data-player="classic" data-numbered='ball'/>
+
+			<!-- break -->
+			<!-- triangle -->
+			<img src="../resources/images/xo/classic/o.png" data-player="triangle">
+			<img src="../resources/images/xo/triangle/x.png" data-player="triangle">
+			<img src="../resources/images/xo/classic/ball.png" data-player="triangle">
+
+			<img src="../resources/images/xo/classic/1o.png" data-player="triangle" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/2o.png" data-player="triangle" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/3o.png" data-player="triangle" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/4o.png" data-player="triangle" data-numbered='o'/>
+			<img src="../resources/images/xo/classic/5o.png" data-player="triangle" data-numbered='o'/>
+
+			<img src="../resources/images/xo/triangle/1x.png" data-player="triangle" data-numbered='x'/>
+			<img src="../resources/images/xo/triangle/2x.png" data-player="triangle" data-numbered='x'/>
+			<img src="../resources/images/xo/triangle/3x.png" data-player="triangle" data-numbered='x'/>
+			<img src="../resources/images/xo/triangle/4x.png" data-player="triangle" data-numbered='x'/>
+			<img src="../resources/images/xo/triangle/5x.png" data-player="triangle" data-numbered='x'/>
+
+			<img src="../resources/images/xo/classic/1ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/2ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/3ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/4ball.png" data-player="triangle" data-numbered='ball'/>
+			<img src="../resources/images/xo/classic/5ball.png" data-player="triangle" data-numbered='ball'/>
+
+		</div>
+
+    </body>
+</html>

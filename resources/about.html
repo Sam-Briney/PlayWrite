@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>About PlayWrite</title>
+		<style type="text/css">
+			body{
+				background-color: #c4c4c4;
+			}
+			td{
+				vertical-align: top;
+			}
+			#logo{
+				background-color: #1b4cad;
+				border-radius: 4px;
+				padding: 2px;
+			}
+		</style>
+		<script type="text/javascript" src="../js/jquery/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript">
+			var gui = require('nw.gui');
+			var win = gui.Window.get();
+
+			$(window).load(function(){
+				$("a").click(function(){
+					gui.Shell.openExternal($(this).attr("data-src"));
+				});
+
+				$(window).resize(function(){
+					window.resizeTo(300,300);
+					window.focus();
+				});
+				$(window).focus();
+
+				win.show();
+			});
+			/*$(window).keydown(function(e){
+				if(e.which === 123){
+					win.showDevTools();
+				}
+			});*/
+		</script>
+	</head>
+	<body>
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<img src="icons/32.png" id="logo"/>
+					</td>
+					<td>
+						</br>
+						<p>
+							MIT License
+						</p>
+
+						<p>
+							Copyright (c) 2014-2021 Samuel Briney
+						</p>
+						<p>
+							Permission is hereby granted, free of charge, to any person obtaining a copy
+							of this software and associated documentation files (the "Software"), to deal
+							in the Software without restriction, including without limitation the rights
+							to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+							copies of the Software, and to permit persons to whom the Software is
+							furnished to do so, subject to the following conditions:
+						</p>
+						<p>
+							The above copyright notice and this permission notice shall be included in all
+							copies or substantial portions of the Software.
+						</p>
+						<p>
+							THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+							IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+							FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+							AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+							LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+							OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+							SOFTWARE.
+						</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

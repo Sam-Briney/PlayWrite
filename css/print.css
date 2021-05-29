@@ -1,0 +1,59 @@
+.hidden{
+	display:none;
+}
+#container{
+	display:block;
+	text-align:center;
+}
+.outer{
+	text-align: center;
+	width: 635px;
+	display: inline-block;
+	page-break-after:always;
+	margin-top: 25px;
+}
+.contain{
+	display:inline-block;
+	text-align:left;
+}
+.page_number{
+	display:block;
+	text-align:right;
+	page-break-before: always;
+	border-top: solid black 1px;
+}
+.page_number_actual{
+	float:right;
+}
+
+#page_number_0{
+	page-break-before: avoid;
+}
+.name2{
+	width: 100%;
+	text-align: left;
+	padding-left: 15px;
+	height: 20px;
+	margin-top: -5px;
+}
+.court{
+	width: 300px;
+	height: auto;
+}
+td{
+	vertical-align:top;
+}
+.border_maker{
+	height: 100%;
+	width: 100%;
+	border-left: solid black 1px;
+	background-color: rgba(0,0,0,0);
+}
+.separator{
+	border-left: solid black 1px;
+}
+@media print{
+	.page_number{
+		border-top: none;
+	}
+}
