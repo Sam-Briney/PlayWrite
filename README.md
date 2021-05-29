@@ -4,3 +4,5 @@ PlayWrite was originally released as propriety basketball drawing software on [C
 
 # Running It
 On Windows just download the repository and run the executable nw.exe. It's really that easy. 
+
+Theoretically you should be able to get it working on Mac or Linux just fine if you know what you're doing since NW.js supports those platforms. You just need to replace the Windows NW.js version with the appropriate one from [NW.js](https://nwjs.io). However I haven't tried so good luck! I doubt it could be terribly difficult (famous last words).  
