@@ -7,8 +7,7 @@
 		"height":640,
 		"icon":"resources/icons/32.png",
 		"min_width":720,
-		"min_height":240,
-		"show":false
+		"min_height":240
 	},
 	"webkit":{
 		"page-cache": true
